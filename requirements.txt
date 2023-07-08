@@ -1,1 +1,2 @@
+PyYAML~=6.0
 empire_commons@https://github.com/Tombmyst-Empire/empire-commons/archive/refs/heads/master.zip

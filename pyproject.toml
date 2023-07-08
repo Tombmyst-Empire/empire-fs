@@ -1,6 +1,7 @@
 [build-system]
 requires = [
-    "setuptools>=68.0"
+    "setuptools>=68.0",
+    "Cython~=3.0.0b1"
 ]
 build-backend = "setuptools.build_meta"
 
@@ -19,6 +20,10 @@ classifiers = [
 	"Operating System :: OS Independent",
 	"Programming Language :: Python :: 3 :: Only",
 	"Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
 	"Typing :: Typed"
 ]
 dependencies = [
@@ -42,13 +47,14 @@ pythonpath = "."
 [tool.black]
 line-length = 150
 
-[tool.pylint.master]
+[tool.pylint.main]
 py-version = "3.10"
 max-line-length = 150
 max-args = 10
 max-attributes = 25
 recursive = true
 jobs = 0
+extension-pkg-allow-list = ["efs.core"]
 
 [tool.pylint.'MESSAGE CONTROL']
 confidence = "UNDEFINED"
