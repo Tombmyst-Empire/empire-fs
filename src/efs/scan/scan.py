@@ -52,6 +52,24 @@ class ConfigurableCallbacks:
             return None
 
         return _match_pattern
+    
+    @staticmethod
+    def file_extensions(
+        *extensions: str
+    ) -> Callable[[str, bool, os.DirEntry, dict], ScanDirectoryResult]:
+        def _file_extensions(
+            entry_path: str,
+            is_directory: bool,
+            dir_entry: os.DirEntry,
+            kwargs_dict: dict,
+        ) -> ScanDirectoryResult:
+            for extension in extensions:
+                if dir_entry.name.endswith(extension):
+                    return entry_path
+
+            return None
+
+        return _file_extensions
 
 
 @catch(default_on_error_behavior=OnError.LOG)
