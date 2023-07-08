@@ -161,3 +161,11 @@ cython_debug/
 #.idea/
 
 .idea/
+
+
+
+build/
+
+*.c
+
+src/efs/core/path_core.html
